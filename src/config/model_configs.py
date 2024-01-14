@@ -1,0 +1,5 @@
+class ModelConfigs:
+    VOCAB_SIZE = 20000
+    EMBEDDING_DIMENSION = 100
+    SENTENCE_MAX_LENGTH = 100
+    CONFIGURED_SENTIMENTS = ['Negative', 'Positive']
