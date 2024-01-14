@@ -1,13 +1,13 @@
 # Sentiment Analysis using LSTM 🌐📊
 
-This project performs sentiment analysis on Amazon reviews using a Long Short-Term Memory (LSTM) neural network. The dataset, available on Kaggle, is preprocessed from raw text to train and test datasets. Model configurations, file paths, and training details are customizable. Training script checks for processed data, preprocesses if needed, and trains the LSTM model. Inference script predicts sentiment probabilities for user-provided text. The README provides clear instructions for setup, training, and inference.
+This project performs sentiment analysis on Amazon reviews using a Long Short-Term Memory (LSTM) neural network. The dataset, available on Kaggle, is preprocessed from raw text to train and test datasets. Model configurations, file paths, and training details are customizable. Training script checks for processed data, preprocesses if needed, and trains the LSTM model. Inference script predicts sentiment probabilities for user-provided text. 
 
 ## Dataset - Amazon Review dataset 
 Download the dataset from Kaggle: [Amazon Review Dataset](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews/data)
 
 The dataset is in raw format (.txt), each line starting with sentiment ('__label__1' or '__label__2') with a space and followed by the text.
 
-Unpack the raw dataset to data/raw/ which should have train.ft.txt and test.ft.txt files. During model training, if no processed data is found in the data/processed/ folder, preprocessing utils will process the raw data and create train and test CSV files.
+Unpack the raw dataset to `data/raw/` which should have `train.ft.txt` and `test.ft.txt` files. During model training, if no processed data is found in the `data/processed/` folder, preprocessing utils will process the raw data and create train and test CSV files.
 
 ## Model Configs 🛠️
 Model configuration parameters are located in `src/config/model_configs.py`. <br>
