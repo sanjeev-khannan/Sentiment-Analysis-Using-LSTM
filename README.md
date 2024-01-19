@@ -1,6 +1,6 @@
 # Sentiment Analysis using LSTM 🌐📊
 
-This project performs sentiment analysis on Amazon reviews using a Long Short-Term Memory (LSTM) neural network. The dataset, available on Kaggle, is preprocessed from raw text to train and test datasets. Model configurations, file paths, and training details are customizable. Training script checks for processed data, preprocesses if needed, and trains the LSTM model. Inference script predicts sentiment probabilities for user-provided text. 
+Sentiment analysis on Amazon reviews using  Long Short-Term Memory (LSTM) model. The dataset, available on Kaggle, is preprocessed from raw text to train and test datasets. Model configurations, file paths, and training details are customizable. Training script checks for processed data, preprocesses if needed, and trains the LSTM model. Inference script predicts sentiment probabilities for user-provided text. 
 
 ## Dataset - Amazon Review dataset 
 Download the dataset from Kaggle: [Amazon Review Dataset](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews/data)
@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ## Model Configs 🛠️
 Model configuration parameters are located in `src/config/model_configs.py`. <br>
-You can configure the model parameters with default values:
+You can configure the model parameters, the default values are as follows,
 
 VOCAB_SIZE = 20000
 
@@ -49,6 +49,10 @@ python train.py
  - If no tokenizer pickle object is found, it will fit a new tokenizer object and save it in the `checkpoints/` directory. 
  - By default, the model will train for 2 epochs, which can be modified in the `train.py` file. 
  - Once trained, the model will be stored in the `checkpoints/` folder.
+
+## Model Object
+You can download my trained model object from [here](https://drive.google.com/file/d/1JiYE1ypmlb3cj1A1W14m727y2WxGTIRc/view?usp=drive_link) <br>
+Once downloaded, copy the `trained_model.keras` file to `checkpoints/` folder.
 
 ## Inference 🔍
 To predict sentiment for a text, navigate to `src/scripts/`
