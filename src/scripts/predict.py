@@ -25,7 +25,7 @@ def predict(texts):
 
     texts = preprocessTexts(texts)
     model = load_model(FilePathConstants.MODEL_SAVE_PATH)
-    result = model.predict(texts)
+    result = model.predict(texts, verbose=0)
     del model
     return result
 
