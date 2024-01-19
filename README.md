@@ -9,6 +9,13 @@ The dataset is in raw format (.txt), each line starting with sentiment ('__label
 
 Unpack the raw dataset to `data/raw/` which should have `train.ft.txt` and `test.ft.txt` files. During model training, if no processed data is found in the `data/processed/` folder, preprocessing utils will process the raw data and create train and test CSV files.
 
+## Install Requirements ✅
+It is recommendable to have python version <=3.11 <br>
+Open the project root folder in terminal, and run the below command.
+```bash
+pip install -r requirements.txt
+```
+
 ## Model Configs 🛠️
 Model configuration parameters are located in `src/config/model_configs.py`. <br>
 You can configure the model parameters with default values:
@@ -53,3 +60,9 @@ cd src/scripts/
 python predict.py --text 'I love computers!!'
 ```
 Currently, you can pass a single text and get the results for class probabilities (Negative, Positive).
+
+#### Sample Output 
+```bash
+Text -> I love computers!!
+Sentiment Probability -> Negative = 0.08 | Positive = 0.92
+```
