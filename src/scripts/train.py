@@ -44,7 +44,7 @@ def train_model():
                   y_val
               ])
 
-    model.save_weights(FilePathConstants.MODEL_SAVE_PATH)
+    model.save(FilePathConstants.MODEL_SAVE_PATH)
 
     test_loss, test_accuracy = model.evaluate(X_test, y_test)
 
