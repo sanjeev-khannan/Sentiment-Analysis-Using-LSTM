@@ -61,12 +61,12 @@ To predict sentiment for a text, navigate to `src/scripts/`
 cd src/scripts/
 ```
 ```bash
-python predict.py --text 'I love computers!!'
+python predict.py --text 'This is one of the best restaurants I've ever seen. Every dish is tasty.'
 ```
 Currently, you can pass a single text and get the results for class probabilities (Negative, Positive).
 
 #### Sample Output 
 ```bash
-Text -> I love computers!!
-Sentiment Probability -> Negative = 0.08 | Positive = 0.92
+Text -> This is one of the best restaurants I've ever seen. Every dish is tasty.
+Sentiment Probability -> Negative = 0.01 | Positive = 0.99
 ```
