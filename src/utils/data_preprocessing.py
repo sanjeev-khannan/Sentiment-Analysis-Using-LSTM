@@ -88,14 +88,6 @@ def loadAndPreprocessData():
     X_test, y_test = test_data.text, test_data.sentiment
     print(f"Data Loaded succesfully..\n")
 
-    X_train = X_train[:200]
-    X_val = X_val[:200]
-    X_test = X_test[:200]
-
-    y_train = y_train[:200]
-    y_val = y_val[:200]
-    y_test = y_test[:200]
-
     print("Processing text inputs..\n")
     X_train = X_train.apply(lambda x: parseSentence(x))
     X_val = X_val.apply(lambda x: parseSentence(x))
