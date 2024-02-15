@@ -1,4 +1,3 @@
-import argparse
 import os
 from pathlib import Path
 import sys
@@ -8,26 +7,34 @@ ROOT = FILE.parents[1]  # Sentiment Analysis root directory
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 
-from utils.data_preprocessing import preprocessTexts
-from keras.saving import load_model
-import tensorflow as tf
-import pandas as pd
-import numpy as np
-from models.LstmWithEmbedding import LSTMModel
-from config.model_configs import ModelConfigs
 from config.paths import FilePathConstants
+from config.model_configs import ModelConfigs
+from models.LstmWithEmbedding import LSTMModel
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from keras.saving import load_model
+from utils.data_preprocessing import getSavedTokenizer, preprocessTexts
+import argparse
 
-def predict(texts):
 
-    if not os.path.isfile(FilePathConstants.MODEL_SAVE_PATH):
-        raise Exception(
-            f"Saved model object not found in path - {FilePathConstants.MODEL_SAVE_PATH}..\n")
+class Prediction:
+    def __init__(self) -> None:
+        self.model = load_model(FilePathConstants.MODEL_SAVE_PATH)
+        self.tokenizer = getSavedTokenizer()
 
-    texts = preprocessTexts(texts)
-    model = load_model(FilePathConstants.MODEL_SAVE_PATH)
-    result = model.predict(texts, verbose=0)
-    del model
-    return result
+    def __predict(self, texts):
+        texts = preprocessTexts(texts, tokenizer_obj=self.tokenizer)
+        result = self.model.predict(texts, verbose=0)
+        return result
+
+    def getPrediction(self, text: str):
+        texts = pd.Series([text])
+        result = self.__predict(texts)[0]
+        neg, pos = result
+        neg = "{:.2f}".format(neg)
+        pos = "{:.2f}".format(pos)
+        return neg, pos
 
 
 def main():
@@ -45,11 +52,9 @@ def main():
     if text == '':
         print(f"Input text argument is Invalid - '{text}'")
         return
-    texts = pd.Series([text])
-    result = predict(texts)[0]
-    neg, pos = result
-    neg = "{:.2f}".format(neg)
-    pos = "{:.2f}".format(pos)
+    
+    predictor = Prediction()
+    neg, pos = predictor.getPrediction(text)
 
     print(f"Text -> {text}\n"
           f"Sentiment Probability -> Negative = {neg} | Positive = {pos}")
