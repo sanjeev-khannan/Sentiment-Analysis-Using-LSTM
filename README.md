@@ -54,6 +54,10 @@ python train.py
 You can download my trained model object from [here](https://drive.google.com/file/d/1JiYE1ypmlb3cj1A1W14m727y2WxGTIRc/view?usp=drive_link) <br>
 Once downloaded, copy the `trained_model.keras` file to `checkpoints/` folder.
 
+## Tokenizer Object
+You can download my trained Tokenizer object from [here](https://drive.google.com/file/d/1XYGTFNAIRpx-GfUsDDfvGKlI8k5hr8HO/view?usp=sharing) <br>
+Once downloaded, copy the `tokenizer.pickle` file to `checkpoints/` folder.
+
 ## Inference 🔍
 To predict sentiment for a text, navigate to `src/scripts/`
 
